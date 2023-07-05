@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: false}))
 
 
 app.get('/', (req, res) => {
-    res.send('Node API for PET CRUD operations is running v2')
+    res.send('Node API for PET CRUD operations is running v3')
 });
 
 app.get('/pets/inBetween', async (req, res) => {
@@ -124,6 +124,9 @@ app.delete('/pets/:id', async(req, res) =>{
 })
 
 app.get('/productData', (req, res) => {
+     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
     try {
       const pid = req.query.pid;
       console.log("pid");
